@@ -13,6 +13,7 @@ import {WishlistService} from "./services/wishlist.service";
 import {CartService} from "./services/cart.service";
 import { CurrencyComponent } from './components/currency/currency.component';
 import { ConvertCurrencyPipe } from './pipes/convert-currency.pipe';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ConvertCurrencyPipe } from './pipes/convert-currency.pipe';
     ProductsListComponent,
     WishlistComponent,
     CurrencyComponent,
-    ConvertCurrencyPipe
+    ConvertCurrencyPipe,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

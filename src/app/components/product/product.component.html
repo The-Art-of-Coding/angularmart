@@ -4,19 +4,19 @@
     <h5 class="mt-0 font-weight-bold mb-2">{{product.name}}</h5>
     <p class="font-italic text-muted mb-0 small">{{product.description}}</p>
     <div class="d-flex align-items-center justify-content-between mt-1">
-      {{convertPrice()}}
-      <h6 class="font-weight-bold my-2">{{product.price| convertCurrency: currencyCode | currency: currencyCode }}</h6>
-      <ul class="list-inline small">
-        <li class="list-inline-item m-0" *ngFor="let i of [].constructor(product.rating)"><i class="fa fa-star text-success"></i></li>
+<!--      {{convertPrice()}}-->
+      <h6 class="font-weight-bold me-lg-auto">{{product.price| convertCurrency: currencyCode | currency: currencyCode }}</h6>
+      <ul class="list-inline">
+        <li class="list-inline-item m-0" *ngFor="let i of [].constructor(product.rating)"><i class="fa fa-star rating-color text-success"></i></li>
         <li class="list-inline-item m-0" *ngFor="let i of [].constructor(5-product.rating)"><i class="fa fa-star-o text-gray"></i></li>
       </ul>
     </div>
   </div>
   <img [src]="product.image_url" alt="{{product.name}}" width="200"
        class="ml-lg-5 order-1 order-lg-2">
-  <button class="btn btn-primary" *ngIf="!product.wishListed && !product.addedToCart" (click)="fnAddToWishList(product)">Add to Wishlist</button>
-  <button class="btn btn-primary" *ngIf="product.wishListed && !product.addedToCart" (click)="fnAddToCart(product)">Add to Cart</button>
-  <p *ngIf="product.addedToCart">
+  <button class="btn btn-primary m-lg-5" *ngIf="!product.wishListed && !product.addedToCart" (click)="fnAddToWishList(product)">Add to Wishlist</button>
+  <button class="btn btn-primary m-lg-5" *ngIf="product.wishListed && !product.addedToCart" (click)="fnAddToCart(product)">Add to Cart</button>
+  <p *ngIf="product.addedToCart" class="m-lg-5">
     <strong>1 Item in Cart</strong>
   </p>
 </div> <!-- End -->

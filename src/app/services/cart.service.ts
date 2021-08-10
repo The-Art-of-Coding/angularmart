@@ -16,6 +16,10 @@ export class CartService {
      return this.productsSubject.asObservable();
    }
 
+   watchCart(): BehaviorSubject<Product[]>{
+     return this.productsSubject;
+   }
+
    addToCart(product: Product,quantity: number): Observable<Product[]>{
     //Check if product already added to array
     if(this.products.filter((element:any) => element.item.id === product.id).length > 0) {

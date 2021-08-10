@@ -4,8 +4,8 @@ import {HomeComponent} from "./home/home.component";
 import {ProductsListComponent} from "./components/products-list/products-list.component";
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: "home", component: HomeComponent },
-  { path: "", component: ProductsListComponent },
   { path: "products", component: ProductsListComponent }
 ];
 

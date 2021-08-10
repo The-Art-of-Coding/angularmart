@@ -1,10 +1,12 @@
+<app-header [currencyCode]="selectedCurrency"></app-header>
 <div class="container py-5">
 <!--<router-outlet></router-outlet>-->
-  <div class="row right">
-    <div>
+  <div class="row ms-auto">
+    <div class="col-1">
       <app-currency (currencyChanged)="onCurrencyChange($event)"></app-currency>
     </div>
 
   </div>
-<app-products-list [currencyCode]="selectedCurrency"></app-products-list>
+<!--<app-products-list [currencyCode]="selectedCurrency"></app-products-list>-->
+  <router-outlet></router-outlet>
 </div>
