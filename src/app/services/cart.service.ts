@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
 import {Product} from "../models/product";
-import {BehaviorSubject, Subject} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  productsRef = new BehaviorSubject<any>([]);
-  products : any = [];
+  productsSubject = new BehaviorSubject<Product[]>([]);
+  products: any = [];
 
   constructor() {
-    this.productsRef.next(this.products);
   }
 
-  getCartProducts(){
-     return this.products.asObservable;
+  getCartProducts(): Observable<Product[]>{
+     return this.productsSubject.asObservable();
    }
 
-    addToCart(product: Product,quantity: number){
+   addToCart(product: Product,quantity: number): Observable<Product[]>{
     //Check if product already added to array
     if(this.products.filter((element:any) => element.item.id === product.id).length > 0) {
        this.products.forEach((element:any)=>{
@@ -32,12 +31,14 @@ export class CartService {
       });
     }
 
-    this.productsRef.next(this.products);
+    this.productsSubject.next(this.products);
+    return this.productsSubject.asObservable();
    }
 
-  removeFromCart(product: Product){
+  removeFromCart(product: Product): Observable<Product[]>{
     this.products =  this.products.filter((element:any) => element.item.id != product.id);
-    this.productsRef.next(this.products);
+    this.productsSubject.next(this.products);
+    return this.productsSubject.asObservable();
   }
 
 }

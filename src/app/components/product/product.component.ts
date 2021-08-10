@@ -18,15 +18,6 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  isInWishList(product: Product){
-    this.wishListService.isInWishList(product).then((data:any) => {
-      return data;
-    })
-      .catch((error:any) => {
-        return false;
-      });
-  }
-
   fnAddToWishList(product: any){
     this.addToWishList.emit(product);
     product.wishListed = true;
@@ -37,7 +28,12 @@ export class ProductComponent implements OnInit {
       product: product,
       quantity: 1
     }
-    this.addToCart.emit(data.product);
+    this.addToCart.emit(data);
+    product.addedToCart = true;
+  }
+
+  convertPrice(){
+    console.log("CONVERSION");
   }
 
 }

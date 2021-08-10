@@ -7,4 +7,5 @@
   description: string;
   available: boolean;
   wishListed: boolean;
+  addedToCart: boolean;
  }

@@ -12,6 +12,7 @@ import {ProductService} from "./services/product.service";
 import {WishlistService} from "./services/wishlist.service";
 import {CartService} from "./services/cart.service";
 import { CurrencyComponent } from './components/currency/currency.component';
+import { ConvertCurrencyPipe } from './pipes/convert-currency.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CurrencyComponent } from './components/currency/currency.component';
     ProductComponent,
     ProductsListComponent,
     WishlistComponent,
-    CurrencyComponent
+    CurrencyComponent,
+    ConvertCurrencyPipe
   ],
   imports: [
     BrowserModule,

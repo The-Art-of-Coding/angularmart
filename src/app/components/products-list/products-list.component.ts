@@ -19,7 +19,8 @@ export class ProductsListComponent implements OnInit {
       rating: 5,
       description: "Jay Shetty, social media superstar and host of the #1 podcast ‘On Purpose’, distils the timeless wisdom he learned as a practising monk into practical steps anyone can take every day to live a less anxious, more meaningful life. Over the past three years, Jay Shetty has become one of the world’s most popular influencers. One of his clips was the most watched video on Facebook last year, with over 360 million views",
       available: true,
-      wishListed:false
+      wishListed:false,
+      addedToCart: true
     },
     {
       id:2,
@@ -29,7 +30,8 @@ export class ProductsListComponent implements OnInit {
       rating: 4,
       description: "While navigating their way through Mumbai's horrendous traffic, Gaur Gopal Das and his wealthy young friend Harry get talking, delving into concepts ranging from the human condition to finding one's purpose in life and the key to lasting happiness.",
       available: false,
-      wishListed: true
+      wishListed: true,
+      addedToCart: false
     }
   ];
   error:any;
@@ -53,17 +55,17 @@ export class ProductsListComponent implements OnInit {
   }
 
   addToCart(data: any) {
-    this.cartService.addToCart(data.product, data.quantity);
-    // this.cartService.addToCart(data.product, data.quantity).then((data:any) => {
-    //   this.success = "Product added to Wishlist"
+    // this.cartService.addToCart(data.product, data.quantity);
+    this.cartService.addToCart(data.product, data.quantity).subscribe((data:any) => {
+      this.success = "Added to Cart."
+    },
+      (error:any) => {
+      this.error = error;
+      });
+    // this.cartService.getCartProducts().subscribe((data:any) => {
+    //   console.log(data);
     // })
-    //   .catch((error:any) => {
-    //     this.error = error;
-    //   });
-    this.cartService.getCartProducts().subscribe((data:any) => {
-      console.log(data);
-    })
-    this.success = "Added to Cart";
+    // this.success = "Added to Cart";
   }
 
 }
