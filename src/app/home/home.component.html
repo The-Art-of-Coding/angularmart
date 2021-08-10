@@ -1,1 +1,32 @@
-<p>home works!</p>
+<h1>Software Development</h1>
+<h2>{{myVar}}</h2>
+
+<p>{{1 + 2}}</p>
+<p>{{"abc".toUpperCase()}}</p>
+
+<h3>{{newVar}}</h3>
+
+
+
+<!--STEP 2-->
+<h1>Property Binding</h1>
+
+<p>
+With Curly Braces
+<input type="text" value="{{myVar}}"/>
+</p>
+<p>
+With Square brackets
+  <input type="text" [value]="myVar"/>
+</p>
+
+<h1> Event Binding</h1>
+<button (click)="onClickFn()" >Event Binding</button>
+
+<h1> 2 Way Data Binding</h1>
+
+<!--This will fail till you import FormsModule in App Module since ngModel
+is a property added by FormsModule -->
+<input type="text" [(ngModel)]="myVar" />
+
+<!--NOW LETS Add Boot Strap to add Styles to our application-->
