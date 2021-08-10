@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularmart';
+
+  selectedCurrency: string = 'INR';
+
+  onCurrencyChange(value: string){
+    this.selectedCurrency = value;
+  }
 }

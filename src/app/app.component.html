@@ -1,1 +1,10 @@
-<router-outlet></router-outlet>
+<div class="container py-5">
+<!--<router-outlet></router-outlet>-->
+  <div class="row right">
+    <div>
+      <app-currency (currencyChanged)="onCurrencyChange($event)"></app-currency>
+    </div>
+
+  </div>
+<app-products-list [currencyCode]="selectedCurrency"></app-products-list>
+</div>
