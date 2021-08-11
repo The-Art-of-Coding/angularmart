@@ -3,6 +3,8 @@ import {Product} from "../../models/product";
 import {WishlistService} from "../../services/wishlist.service";
 import {CartService} from "../../services/cart.service";
 import {ProductService} from "../../services/product.service";
+import {CurrencyService} from "../../services/currency.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-products-list',
@@ -14,17 +16,25 @@ export class ProductsListComponent implements OnInit {
   productsList : Product[] = [];
   error:any;
   success:any;
+  currencySubscription!: Subscription
 
 
   constructor(
     private wishListService: WishlistService,
     private cartService: CartService,
-    private productService: ProductService) {
+    private productService: ProductService,
+    private currencyService: CurrencyService) {
     this.productsList = this.productService.getProducts();
   }
 
   ngOnInit(): void {
+    this.currencySubscription = this.currencyService.currencyObservable.subscribe((code)=>{
+      this.currencyCode = code;
+    })
+  }
 
+  ngOnDestroy(){
+    this.currencySubscription!.unsubscribe();
   }
 
   addToWishList(product: any) {
@@ -44,10 +54,6 @@ export class ProductsListComponent implements OnInit {
       (error:any) => {
       this.error = error;
       });
-    // this.cartService.getCartProducts().subscribe((data:any) => {
-    //   console.log(data);
-    // })
-    // this.success = "Added to Cart";
   }
 
 }

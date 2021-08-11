@@ -30,24 +30,36 @@ User: FormGroup {
       <input class="form-control" type="text" formControlName="city">
     </div>
     <div class="row">
-      <label>pincode</label>
+      <label>Zip Code</label>
       <input class="form-control" type="number" formControlName="pincode">
       <small *ngIf="userForm.get('address')?.get('pincode')?.hasError('required')">
-        Pincode is required
+        Zip Code is required
       </small>
-      value: {{userForm.get('address')?.get('pincode')?.value}}
-      Errors: <pre>{{userForm.get('address')?.get('pincode')?.errors | json}}</pre>
+      Value of Zip Code(Update on Blur): {{userForm.get('address')?.get('pincode')?.value}}
+
     </div>
   </div>
 
-  <div class="row">
-    <button class="btn btn-primary" type="submit">Submit</button>
+  <div class="row mt-4">
+    <div class="col-3">
+      <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
   </div>
 </form>
+<div class="row mt-4">
+  <div class="col-6">
+    <h3> Errors: </h3>
+    <pre>{{userForm.get('address')?.get('pincode')?.errors | json}}</pre>
+  </div>
+  <div class="col-6">
+    <h3> Form Value </h3>
+    <pre>
+      {{userForm.value | json}}
+    </pre>
+  </div>
+</div>
 
-  <pre>
-    {{userForm.value | json}}
-  </pre>
+
 <!--<form [formGroup]="userForm" (submit)="saveData()">-->
 <!--  <div class="row" *ngFor="let key of keys;">-->
 <!--    <label>{{key | titlecase}}</label>-->

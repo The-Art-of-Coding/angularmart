@@ -17,6 +17,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { DemoFormComponent } from './components/demo-form/demo-form.component';
 import { DemoModelFormComponent } from './components/demo-model-form/demo-model-form.component';
 import { ImageLoaderDirective } from './directives/image-loader.directive';
+import {CurrencyService} from "./services/currency.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { ImageLoaderDirective } from './directives/image-loader.directive';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ProductService, WishlistService, CartService],
+  providers: [ProductService, WishlistService, CartService, CurrencyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
