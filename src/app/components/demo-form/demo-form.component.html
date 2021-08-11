@@ -1,0 +1,18 @@
+<form>
+  <h1>Template Driven Form</h1>
+  <div>
+    <label>Name</label>
+<!--    The below ngModel is different from [(ngModel)]="demoData" -->
+<!--    In above case the 2 way databinding is happening with demoData variable, but beow how will it happen? -->
+<!--    In below case we specify that using name attr-->
+    <input type="text" class="form-control" ngModel  name="name" required/>
+  </div>
+  <div>
+    <label>Age</label>
+<!--    The below ngModel is different from [(ngModel)]="demoData" -->
+<!--    In above case the 2 way databinding is happening with demoData variable, but beow how will it happen? -->
+<!--    In below case we specify that using name attr-->
+    <input type="text" class="form-control" ngModel  name="age" required/>
+  </div>
+  <button class="btn btn-primary">Submit</button>
+</form>
