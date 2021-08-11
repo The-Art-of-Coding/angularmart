@@ -12,10 +12,15 @@
       </ul>
     </div>
   </div>
-  <img [src]="product.image_url" alt="{{product.name}}" width="200"
-       class="ml-lg-5 order-1 order-lg-2">
-  <button class="btn btn-primary m-lg-5" *ngIf="!product.wishListed && !product.addedToCart" (click)="fnAddToWishList(product)">Add to Wishlist</button>
-  <button class="btn btn-primary m-lg-5" *ngIf="product.wishListed && !product.addedToCart" (click)="fnAddToCart(product)">Add to Cart</button>
+
+  <!--  <img custLoader [src]="product.image_url" alt="{{product.name}}" width="200"-->
+
+  <!--  <img custLoader="assets/images/err.png" [src]="product.image_url" alt="{{product.name}}" width="200"-->
+
+  <img [custLoader]="altUrl" [src]="product.image_url" alt="{{product.name}}" width="200" class="ml-lg-5 order-1 order-lg-2">
+
+  <button custLoader class="btn btn-primary m-lg-5" *ngIf="!product.wishListed && !product.addedToCart" (click)="fnAddToWishList(product)">Add to Wishlist</button>
+  <button custLoader class="btn btn-primary m-lg-5" *ngIf="product.wishListed && !product.addedToCart" (click)="fnAddToCart(product)">Add to Cart</button>
   <p *ngIf="product.addedToCart" class="m-lg-5">
     <strong>1 Item in Cart</strong>
   </p>

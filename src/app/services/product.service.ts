@@ -13,7 +13,7 @@ export class ProductService {
       {
         id:1,
         name: "Think Like a Monk: The secret of how to harness the power of positivity and be happy now",
-        image_url: "/assets/images/product1.jpeg",
+        image_url: "/assets/images/product.jpeg",
         price: 287.00,
         rating: 5,
         description: "Jay Shetty, social media superstar and host of the #1 podcast ‘On Purpose’, distils the timeless wisdom he learned as a practising monk into practical steps anyone can take every day to live a less anxious, more meaningful life. Over the past three years, Jay Shetty has become one of the world’s most popular influencers. One of his clips was the most watched video on Facebook last year, with over 360 million views",
