@@ -8,4 +8,6 @@
   available: boolean;
   wishListed: boolean;
   addedToCart: boolean;
+ // Optional Field:
+ //  isOptional?: boolean;
  }

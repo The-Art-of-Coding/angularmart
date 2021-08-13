@@ -7,7 +7,8 @@ import {Product} from "../models/product";
 export class ProductService {
 
   constructor() { }
-
+  // We can use fake API also with https://fakestoreapi.com/products for ALL CRUD operations.
+  // https://fakestoreapi.com/docs Documentation
   getProducts(): Product[]{
     return [
       {
